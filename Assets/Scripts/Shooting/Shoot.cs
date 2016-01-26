@@ -2,6 +2,11 @@
 using UnityEngine.UI;
 using System.Collections;
 
+/*
+Author: Justin Collins
+Purpose of Script: Controls what the gun does in each state, the ammo of the gun and shot timer.
+    */
+
 public class Shoot : MonoBehaviour {
 
 	public GameObject bullet;

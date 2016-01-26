@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Author: Justin Collins
+Purpose of Script: Controls the bullets that shoot out of the gun and how they interact when they hit an enemy or environment
+    */
+
 public class ShootBullet : MonoBehaviour {
     public float speed = 10;
     public float lifeTime = 0.5f;

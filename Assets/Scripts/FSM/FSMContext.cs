@@ -3,6 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+/*
+Author: Justin Collins
+Purpose of Script: handles updating and dispatching actions of the current state
+    */
+
 public class FSMContext {
 
     public State currentState;

@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/*
+Author: Justin Collins
+Purpose of Script: Controls the Health of the player and its interaction with the GUI in game
+    */
+
 public class CharacterHealth : MonoBehaviour {
 
     public int health = 100;

@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Author: Justin Collins
+Purpose of Script: Manages the main menu
+    */
+
 public class MainMenu : MonoBehaviour {
 
     public void Start() {

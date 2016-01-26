@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Author: Justin Collins
+Purpose of Script: Controls the enemie's movement
+    */
+
 public class EnemyMovement : MonoBehaviour {
 
     public int speed = 5;

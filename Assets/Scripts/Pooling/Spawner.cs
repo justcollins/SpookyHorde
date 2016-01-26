@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Author: Justin Collins
+Purpose of Script: To control the spawning of enemies and pick-ups throughout the scene
+    */
+
 public class Spawner : MonoBehaviour {
 
     public GameObject enemy;

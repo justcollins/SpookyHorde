@@ -3,6 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+/*
+Author: Justin Collins
+Purpose of Script: Creates transitions between the different states
+    */
+
 public class Transition {
 
     private State target;

@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Author: Justin Collins
+Purpose of Script: Controls the enemie's health
+    */
+
 public class EnemyHealth : MonoBehaviour {
 
     public int enemyHealth = 100;

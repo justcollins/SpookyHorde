@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Author: Justin Collins
+Purpose of Script: Controls the GUI's during gameplay
+    */
+
 public class GUI : MonoBehaviour {
 
     public GameObject gui;

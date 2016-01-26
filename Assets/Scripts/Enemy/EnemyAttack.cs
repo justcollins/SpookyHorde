@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Author: Justin Collins
+Purpose of Script: Controls how the enemy attacks the player
+    */
+
 public class EnemyAttack : MonoBehaviour {
 
     public int enemyDamage = 5;

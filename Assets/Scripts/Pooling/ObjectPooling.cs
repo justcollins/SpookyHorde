@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+/*
+Author: Justin Collins
+Purpose of Script: To spawn objects at the very beginning of the game so that the game is not constantly creating
+and destroying gameobjects.
+    */
+
 public class ObjectPooling : MonoBehaviour {
     public static ObjectPooling spawner;
     public ObjectPool[] pools;
