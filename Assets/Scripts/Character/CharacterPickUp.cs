@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+//MOST LIKELY WILL NOT NEED THIS SCRIPT
 [RequireComponent(typeof (CharacterInventory))]
 [RequireComponent(typeof (CharacterHealth))]
 public class CharacterPickUp : MonoBehaviour {
 
-    public Health healthPack;
+    public HealPlayer healthPack;
 
     private CharacterInventory inventory;
     private CharacterHealth health;
@@ -15,12 +17,9 @@ public class CharacterPickUp : MonoBehaviour {
         inventory = GetComponent<CharacterInventory>();
         health = GetComponent<CharacterHealth>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
+
+    //Move to Flares script instead of CharacterPickUpScript
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.layer == 11 && inventory.getCurrentFlares() <= inventory.maxFlares)
@@ -28,9 +27,6 @@ public class CharacterPickUp : MonoBehaviour {
             Spawner.subtractCurrentItems(1);
             ObjectPooling.DeSpawn(collider.gameObject);
             inventory.addFlares(1);
-        }/* else if (collider.gameObject.layer == 12 && health.getCurrentHealth() + <= 100) {
-            Spawner.subtractCurrentItems(1);
-            ObjectPooling.DeSpawn(collider.gameObject);
-        } */
+        }
     }
 }

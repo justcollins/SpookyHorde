@@ -16,6 +16,14 @@ public class CharacterHealth : MonoBehaviour {
         return currentHealth;
     }
 
+    public void setCurrentHealth(int newHealth) {
+        currentHealth = newHealth;
+    }
+
+    public void addCurrentHealth(int health) {
+        currentHealth += health;
+    }
+
     void Awake() {
         currentHealth = health;
         isDead = false;
@@ -24,12 +32,6 @@ public class CharacterHealth : MonoBehaviour {
 	void Update () {
         UpdateHealth();
 	}
-
-    void OnCollisionStay(Collision collider) {
-        if(collider.gameObject.layer == 10) {
-            currentHealth = collider.gameObject.GetComponent<EnemyAttack>().DealDamage(currentHealth);
-        }
-    }
 
     void UpdateHealth() {
         isDead = DeadCheck();

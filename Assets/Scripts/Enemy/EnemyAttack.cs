@@ -12,9 +12,20 @@ public class EnemyAttack : MonoBehaviour {
     public int timeBetweenAttacks = 2;
 
     private float timer = 0.0f;
+    private CharacterHealth player;
+
+    public void Start() {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterHealth>();
+    }
 
     public void SetTimer(float setTimer) {
         this.timer = setTimer;
+    }
+
+    void OnCollisionStay(Collision collider) {
+        if (collider.gameObject.tag == "Player") {
+            player.setCurrentHealth(DealDamage(player.getCurrentHealth()));
+        }
     }
 
     public int DealDamage(int damagedHealth) {
