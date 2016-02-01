@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 /*
 Author: Justin Collins
@@ -45,8 +44,7 @@ public class ShootBullet : MonoBehaviour {
 
     public void CheckBulletDespawn() {
         distance -= speed * Time.deltaTime;
-        if (Time.time > spawnTime + lifeTime || distance < 0)
-        {
+        if (Time.time > spawnTime + lifeTime || distance < 0) {
             ObjectPooling.DeSpawn(this.gameObject);
         }
     }
@@ -56,5 +54,5 @@ public class ShootBullet : MonoBehaviour {
             collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
         }
             ObjectPooling.DeSpawn(this.gameObject);
-        }
     }
+}

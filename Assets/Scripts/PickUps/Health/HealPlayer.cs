@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Author: Justin Collins
+Purpose of Script: this script heals the player if they pick up a health pack. It only works if the players health is lower
+than maximum
+    */
+
 public class HealPlayer : MonoBehaviour {
 
     public int giveHealth = 15;

@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+
+/*
+Author: Justin Collins
+Purpose of Script: translates all of the variables that need to be displayed to the GUI so the player can see them
+    */
 
 [RequireComponent (typeof (CharacterHealth))]
 [RequireComponent (typeof (CharacterInventory))]
