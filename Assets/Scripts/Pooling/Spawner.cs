@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour {
 
     private float currentEnemySpawnTime;
     private float currentItemSpawnTime;
-    private static int currentEnemies;
+    private int currentEnemies;
     private static int currentItems;
     private int currentWave;
     private int rando;
@@ -37,7 +37,7 @@ public class Spawner : MonoBehaviour {
 
     void SpawnSystem() {
         if (currentWave < maxWaves) {
-            if (enemySpawnTime <= currentEnemySpawnTime) {
+            if (currentEnemySpawnTime <= 0) {
                 currentWave++;
                 
                 for (int i = 0; i < startingEnemies * currentWave; i++) {
@@ -45,30 +45,42 @@ public class Spawner : MonoBehaviour {
                     ObjectPooling.Spawn(enemy, enemySpawnPositions[rando].transform.position, enemySpawnPositions[rando].transform.rotation);
                     currentEnemies++;
                 }
-                currentEnemySpawnTime = 0.0f;
+                currentEnemySpawnTime = enemySpawnTime;
             }
 
-            if (itemSpawnTime <= currentItemSpawnTime) {
+            if (currentItemSpawnTime <= 0) {
                 for (int i = currentItems; i < maxItems; i++) {
                     rando = Random.Range(0, pickUpSpawnPositions.Length);
                     randoObject = Random.Range(0, pickUps.Length);
                     ObjectPooling.Spawn(pickUps[randoObject], pickUpSpawnPositions[rando].transform.position, pickUpSpawnPositions[rando].transform.rotation);
                     currentItems++;
                 }
-                currentItemSpawnTime = 0.0f;
+                currentItemSpawnTime = itemSpawnTime;
             }
 
             if (currentEnemies == 0) {
-                currentEnemySpawnTime += Time.deltaTime;
+                currentEnemySpawnTime -= Time.deltaTime;
             }
 
             if (currentItems < maxItems) {
-                currentItemSpawnTime += Time.deltaTime;
+                currentItemSpawnTime -= Time.deltaTime;
             }
         }
     }
 
-    public static void subtractCurrentEnemies(int subEnemies) {
+    public int GetCurrentEnemies() {
+        return currentEnemies;
+    }
+
+    public float GetSpawnTime() {
+        return currentEnemySpawnTime;
+    }
+
+    public int GetCurrentWave() {
+        return currentWave;
+    }
+
+    public void SubtractCurrentEnemies(int subEnemies) {
         currentEnemies -= subEnemies;
     }
 

@@ -11,10 +11,15 @@ public class EnemyHealth : MonoBehaviour {
     public int enemyHealth = 100;
 
     private int enemyCurrentHealth;
+    private Spawner spawner;
     private bool isDead;
 
     public void Awake() {
         enemyCurrentHealth = enemyHealth;
+    }
+
+    public void Start() {
+        spawner = FindObjectOfType<Spawner>();
     }
 
     public void OnEnable()
@@ -26,7 +31,7 @@ public class EnemyHealth : MonoBehaviour {
         isDead = EnemyDeadCheck();
 
         if(isDead) {
-            Spawner.subtractCurrentEnemies(1);
+            spawner.SubtractCurrentEnemies(1);
             ObjectPooling.DeSpawn(this.gameObject);
         }
 	}
