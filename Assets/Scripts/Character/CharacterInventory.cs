@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Author: Justin Collins
+Purpose of Script: Manages the amount of Flares that the player is currently holding and can hold
+To Do: Make inventory also manage amount of ammo the player can hold
+    */
+
 public class CharacterInventory : MonoBehaviour {
 
     public int maxFlares = 5;
     public int startingFlares = 2;
-    //public int startingAmmo = 200;
 
     private int currentFlares;
-    //private int currentAmmo;
 
     public void subtractFlares(int subFlares) {
         currentFlares -= subFlares;
@@ -21,22 +25,9 @@ public class CharacterInventory : MonoBehaviour {
     public int getCurrentFlares() {
         return currentFlares;
     }
-    /*
-    public void subtractAmmo(int subAmmo) {
-        currentAmmo -= subAmmo;
-    }
 
-    public void addAmmo(int addAmmo) {
-        currentAmmo += addAmmo;
-    }
-
-    public int getAmmo() {
-        return currentAmmo;
-    }
-    */
     public void Start() {
         currentFlares = startingFlares;
-        //currentAmmo = startingAmmo;
     }
 
     public void Update() {

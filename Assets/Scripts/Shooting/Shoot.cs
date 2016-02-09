@@ -27,10 +27,8 @@ public class Shoot : MonoBehaviour {
     private bool reloading = false;
     private bool empty = false;
     private int timeBetweenShots = shotTimer;
-    //private CharacterInventory ammo;
 
     void Awake() {
-        //ammo = FindObjectOfType<CharacterInventory>() as CharacterInventory;
     }
 
 	void Update () {
@@ -52,7 +50,6 @@ public class Shoot : MonoBehaviour {
         if (timeBetweenShots == 0) {
             timeBetweenShots = shotTimer;
             ammo--;
-            //ammo.subtractAmmo(1);
             ObjectPooling.Spawn(bullet, this.transform.position, this.transform.rotation);
 		}
         if (timeBetweenShots > 0) {
@@ -65,6 +62,5 @@ public class Shoot : MonoBehaviour {
 
     void Reload() {
         ammo += 10;
-        //ammo.addAmmo(10);
     }
 }

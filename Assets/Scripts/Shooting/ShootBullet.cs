@@ -52,7 +52,10 @@ public class ShootBullet : MonoBehaviour {
     void OnTriggerEnter(Collider collider) {
         if (collider.gameObject.layer == 10) {
             collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
-        }
+        } else if (collider.gameObject.tag == "Player") {
+        } else {
             ObjectPooling.DeSpawn(this.gameObject);
+        }
+            
     }
 }

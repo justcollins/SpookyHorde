@@ -12,6 +12,11 @@ public class EnemyAttack : MonoBehaviour {
 
     private float timer = 0.0f;
     private CharacterHealth player;
+    private Animator attackAnimation;
+
+    public void Awake() {
+        attackAnimation = GetComponentInChildren<Animator>();
+    }
 
     public void Start() {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterHealth>();
@@ -21,10 +26,15 @@ public class EnemyAttack : MonoBehaviour {
         this.timer = setTimer;
     }
 
-    void OnCollisionStay(Collision collider) {
+    void OnTriggerStay(Collider collider) {
         if (collider.gameObject.tag == "Player") {
+            //this.attackAnimation.SetBool("Attack", true);
+            this.attackAnimation.SetTrigger("Attack");
             player.setCurrentHealth(DealDamage(player.getCurrentHealth()));
-        }
+        }// else {
+            //this.attackAnimation.SetBool("Attack", false);
+        //}
+        
     }
 
     public int DealDamage(int damagedHealth) {
