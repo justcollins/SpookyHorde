@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+
+/*
+Author: Justin Collins
+Purpose of Script: Controls what the gun does in each state, the ammo of the gun and shot timer.
+    */
 
 public class Shoot : MonoBehaviour {
 
 	public GameObject bullet;
-    //public GameObject muzzleFlash;
-    //public ParticleSystem gunShootParticles;
     public new string name;
     public int ammo = 200;
     public static int shotTimer = 7;
-    public Text ammoText;
 
     public void IdleOn() { idle = true; }
     public void IdleOff() { idle = false; }
@@ -28,8 +29,6 @@ public class Shoot : MonoBehaviour {
     private int timeBetweenShots = shotTimer;
 
     void Awake() {
-        //gunShootParticles.Stop(withChildren: true);
-        //gunShootParticles.Clear(withChildren: true);
     }
 
 	void Update () {
@@ -42,19 +41,12 @@ public class Shoot : MonoBehaviour {
         } else if(reloading) {
             Reload();
         }
-
-        SetAmmoText();
     }
 
     void Idle() {
-        //gunShootParticles.emissionRate = 0.0f;
-        //gunShootParticles.Play(withChildren: true);
-        //muzzleFlash.SetActive(false);
     }
 
 	void Fire() {
-        //gunShootParticles.emissionRate = 11.42f;
-        //muzzleFlash.SetActive(true);
         if (timeBetweenShots == 0) {
             timeBetweenShots = shotTimer;
             ammo--;
@@ -63,20 +55,12 @@ public class Shoot : MonoBehaviour {
         if (timeBetweenShots > 0) {
             timeBetweenShots--;
         }
-        //if(Physics.Raycast(transform.position, ))
     }
 
     void Empty() {
-        //gunShootParticles.emissionRate = 0.0f;
-        //gunShootParticles.Stop(withChildren: true);
-        //muzzleFlash.SetActive(false);
     }
 
     void Reload() {
         ammo += 10;
-    }
-
-    public void SetAmmoText() {
-        ammoText.text = "Ammo: " + ammo.ToString();
     }
 }

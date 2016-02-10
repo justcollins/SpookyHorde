@@ -3,12 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+/*
+Author: Justin Collins
+Purpose of Script: Creates a state for the FSM
+    */
+
 public class State {
 
     private Action entryAction;
     private Action updateAction;
     private Action exitAction;
+#pragma warning disable 414
     private string name;
+#pragma warning restore 414
     private Dictionary<string, Transition> transitions = new Dictionary<string, Transition>();
 
     public State(Action entryAction, Action updateAction, Action exitAction, string name) {

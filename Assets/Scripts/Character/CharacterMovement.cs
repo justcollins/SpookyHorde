@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Author: Justin Collins
+Purpose of Script: Controls how the character moves in 3d space and where they are looking
+    */
+
 [RequireComponent (typeof (Rigidbody))]
 [RequireComponent (typeof (CapsuleCollider))]
 

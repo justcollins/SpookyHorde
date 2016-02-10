@@ -2,6 +2,12 @@
 using System.Collections;
 using System.Text;
 
+/*
+Author: Justin Collins
+Purpose of Script: The main part of the Finit State Machine. Combines all of the other FSM scripts and puts them together
+to make a functioning FSM
+    */
+
 public class FiniteStateMachine : MonoBehaviour {
 
     private FSMContext stateMachine;
@@ -9,7 +15,6 @@ public class FiniteStateMachine : MonoBehaviour {
     private State firing;
     private State outOfAmmo;
     private State reload;
-    private State jam;
 
     public new string name = "gun";
 

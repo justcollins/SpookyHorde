@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
+
+/*
+Author: Justin Collins
+Purpose of Script: Controls the bullets that shoot out of the gun and how they interact when they hit an enemy or environment
+    */
 
 public class ShootBullet : MonoBehaviour {
     public float speed = 10;
@@ -40,8 +44,7 @@ public class ShootBullet : MonoBehaviour {
 
     public void CheckBulletDespawn() {
         distance -= speed * Time.deltaTime;
-        if (Time.time > spawnTime + lifeTime || distance < 0)
-        {
+        if (Time.time > spawnTime + lifeTime || distance < 0) {
             ObjectPooling.DeSpawn(this.gameObject);
         }
     }
@@ -49,7 +52,10 @@ public class ShootBullet : MonoBehaviour {
     void OnTriggerEnter(Collider collider) {
         if (collider.gameObject.layer == 10) {
             collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
-        }
+        } else if (collider.gameObject.tag == "Player") {
+        } else {
             ObjectPooling.DeSpawn(this.gameObject);
         }
+            
     }
+}
